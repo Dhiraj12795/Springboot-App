@@ -1,0 +1,37 @@
+plugins {
+    id 'org.springframework.boot' version '3.1.2'
+
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+group = 'com.TestSpring'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+}
+
+springBoot {
+    mainClass = 'com.demo.testspring.TestSpringApplication' // Replace with your actual main class
+    executable = true // This makes the JAR executable
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa' // Changed to JPA instead of JDBC
+    implementation 'com.h2database:h2:1.4.200',
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.boot.SpringApplication'
+    testImplementation 'org.springframework.boot.autoconfigure.EnableAutoConfiguration'
+    testImplementation 'org.springframework.boot.autoconfigure.SpringBootApplication'
+    
+}
+
+test {
+    useJUnitPlatform()
+}
